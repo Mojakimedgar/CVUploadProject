@@ -1,0 +1,15 @@
+{% extends "cv_app/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="my-4 text-center">Welcome to the CV Upload Application!</h2>
+    {% if user.is_authenticated %}
+      <p class="text-center">Welcome, {{ user.username }}! You are logged in.</p>
+      <div class="text-center">
+        <a href="{% url 'upload_cv' %}" class="btn btn-primary mt-3">Upload Your CV</a>
+      </div>
+    {% else %}
+      <p class="text-center">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
+    {% endif %}
+  </div>
+{% endblock %}
